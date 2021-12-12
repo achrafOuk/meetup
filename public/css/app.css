@@ -1,0 +1,32 @@
+.navbar{
+    background-color: #6A0729 !important;
+    padding: 1%;
+    color: white;
+}
+nav a {
+    color: white !important;
+}
+form.form-inline.my-2.my-lg-0 {
+    display: flex;
+    margin-left: 2%;
+}
+form.form-inline {
+    display: flex;
+}
+body{
+  position: relative;
+  min-height: 100vh;
+}
+
+.App{
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+footer{
+    background: #6a0729;
+    padding:1% 0% 2% 0% ;
+    color : '#1d1d1d';
+    max-height: 50px ;
+    margin-bottom: 0%;
+    height: 25px;
+    margin-top: 8%;
+}

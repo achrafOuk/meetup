@@ -14,10 +14,10 @@
         </head>
     <body class="antialiased">
         <!-------NavBar------------>
-        @include("Components/navbar")
+        @include("layouts/navbar")
         <!-------Body------------>
         @yield('content')
         <!-------Footer------------>
-        @include("Components/footer")
+        @include("layouts/footer")
     </body>
 </html>
