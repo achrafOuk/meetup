@@ -2,6 +2,8 @@
 namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     function index(){
@@ -11,12 +13,12 @@ class RegisterController extends Controller
     {
         //signup new user
         User::create([
-            'name'=>$request->name,
+            'name'=>$request->username,
             'email'=>$request->email,
-            'password'=>$request->password,
+            'password' => Hash::make($request->password),
         ]);
         //authentication
-        Auth::attempt($request->only('password', 'email'));
+        auth()->attempt($request->only('password', 'email'));
         //redirect into index
         return redirect()->route('index');
     }

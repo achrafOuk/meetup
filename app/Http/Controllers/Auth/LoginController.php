@@ -13,5 +13,9 @@ class LoginController extends Controller
     function login(Request $request)
     {
         dd($request->username);
+        if(!  Auth::attempt($request->only('password', 'email')) ){
+            return redirect()->route('login');
+        }
+        return redirect()->route('index');
     }
 }

@@ -1,13 +1,13 @@
 @extends('layouts/page')
 @section('content')
-<div class="card o-hidden border-0 shadow-lg my-5" style="
+<div class="card o-hidden border-0 shadow-lg my-3" style="
 ">
             <div class="card-body p-0">
               <!-- Nested Row within Card Body -->
               <div class="row">
                 <div class="col-lg-12">
                   <div class="p-5">
-                <form action="{{route('Login')}}" method="POST" class="col-lg-12 user">
+                <form action="{{route('Signup')}}" method="POST" class="col-lg-12 user">
                   @csrf
                       <input type="hidden" name="csrfmiddlewaretoken" value="NzlicSo243hORE1qinitkJVOY3muVLZOtHNvsyAxBPwBLLWRiQ9mLzhFvgfbSyUe" class="form-control form-control-user">
                       <fieldset class="form-group">
