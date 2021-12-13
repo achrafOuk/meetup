@@ -1,9 +1,10 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventsTable extends Migration
+class CreateAttemptEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +13,10 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('attempt_events', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('user','id')->onDelete('cascade');
+            $table->foreignId('event_id')->constrained('event','id')->onDelete('cascade');
         });
     }
 
@@ -24,6 +27,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('attempt_events');
     }
 }

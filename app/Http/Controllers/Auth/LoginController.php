@@ -10,4 +10,8 @@ class LoginController extends Controller
     function index(){
         return view('pages.auth.login');
     }
+    function login(Request $request)
+    {
+        dd($request->username);
+    }
 }

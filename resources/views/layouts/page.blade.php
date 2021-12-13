@@ -16,7 +16,9 @@
         <!-------NavBar------------>
         @include("layouts/navbar")
         <!-------Body------------>
-        @yield('content')
+        <div class='container'>
+            @yield('content')
+        </div>
         <!-------Footer------------>
         @include("layouts/footer")
     </body>
