@@ -12,7 +12,7 @@ class LoginController extends Controller
     }
     function login(Request $request)
     {
-        if(!  auth()->attempt($request->only('password', 'name')) ){
+        if(!auth()->attempt($request->only('password', 'name')) ){
             return redirect()->back()->with('error', 'Username or password are uncorrect');   
         }
             return redirect()->route('index');

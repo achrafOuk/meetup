@@ -1,9 +1,8 @@
 <nav class="navbar navbar-light bg-light">
 <div>
-  <a class="navbar-brand">Meetup </a>
-  <a class="navbar-brand">Home</a>
+  <a class="navbar-brand" href="{{route('index')}}">Meetup </a>
 @auth
-  <a class="navbar-brand">Add new event</a>
+  <a class="navbar-brand">Manage your events</a>
 @endauth
 </div>
   <form class="form-inline">

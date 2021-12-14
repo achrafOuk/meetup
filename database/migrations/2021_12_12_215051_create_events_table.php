@@ -18,7 +18,6 @@ class CreateEventsTable extends Migration
             $table->string('place');
             $table->string('discription');
             $table->foreignId('user_id')->constrained('users','id')->onDelete('cascade');
-
         });
     }
 

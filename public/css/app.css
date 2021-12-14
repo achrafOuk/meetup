@@ -20,11 +20,17 @@ body{
   position: relative;
   min-height: 100vh;
 }
-
+textarea.form-control {
+    min-height: calc(1.5em + 0.75rem + 2px);
+    resize: none;
+    height: 12rem;
+}
 .App{
   padding-bottom: 2.5rem;    /* Footer height */
 }
-
+.card.w-100 {
+    margin: 2%;
+}
 button.btn.btn-primary.btn-user.btn-block {
     margin-top: 2%;
 }
@@ -37,4 +43,9 @@ footer{
     bottom: 0;
     width: 100%;
     height: 2.5rem; 
+}
+.content-section {
+    background: white;
+    padding: 2%;
+    width: 90%;
 }
