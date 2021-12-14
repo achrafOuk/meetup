@@ -15,7 +15,7 @@
                         <div id="div_id_username" class="control-group"> 
                         @if (\Session::has('error'))
                                     <div class="alert alert-danger" role="alert">
-                                      {{\Session::has('error'}}
+                                        {{session('error')}}
                                     </div>
                         @endif
                           <label for="id_username" class="control-label requiredField"> Username<span class="asteriskField">*</span> </label> <div class="controls"> <input 

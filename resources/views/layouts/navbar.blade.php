@@ -2,7 +2,9 @@
 <div>
   <a class="navbar-brand">Meetup </a>
   <a class="navbar-brand">Home</a>
+@auth
   <a class="navbar-brand">Add new event</a>
+@endauth
 </div>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

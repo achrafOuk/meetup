@@ -12,7 +12,7 @@ class RegisterController extends Controller
     function signup(Request $request)
     {
         //signup new user
-        if( !(User::where('name',$request->username) || User::where('email',$request->email)) ){
+        if( !(User::where('name',$request->username) && !User::where('email',$request->email)) ){
             User::create([
                 'name'=>$request->username,
                 'email'=>$request->email,
@@ -24,6 +24,6 @@ class RegisterController extends Controller
             return redirect()->route('index');
         }
         //redirect with old data if register fails
-        return redirect()->back()->with('error', 'your message,here');   
+        return redirect()->back()->with('error', 'Username or email exist');   
     }
 }

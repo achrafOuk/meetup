@@ -12,6 +12,12 @@
                       <input type="hidden" name="csrfmiddlewaretoken" value="NzlicSo243hORE1qinitkJVOY3muVLZOtHNvsyAxBPwBLLWRiQ9mLzhFvgfbSyUe" class="form-control form-control-user">
                       <fieldset class="form-group">
                         <legend class="border-bottom mb-4">Log In</legend>
+                        @if (\Session::has('error'))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{session('error')}}
+                                    </div>
+                        @endif
+
                       <div id="div_id_username" class="control-group"> <label for="id_username" class="control-label requiredField">
                       Username<span class="asteriskField">*</span> </label> <div class="controls"> <input type="text" name="username"  autocapitalize="none"  maxlength="150" class="form-control form-control-user" required="" id="id_username"> </div> </div> <div id="div_id_password" class="control-group"> <label for="id_password" class="control-label requiredField">
                       Password<span class="asteriskField">*</span> </label> <div class="controls"> <input type="password" name="password" autocomplete="current-password" class="form-control form-control-user" required="" id="id_password"> </div> </div>
