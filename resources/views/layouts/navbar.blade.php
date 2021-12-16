@@ -1,9 +1,6 @@
 <nav class="navbar navbar-light bg-light">
 <div>
   <a class="navbar-brand" href="{{route('index')}}">Meetup </a>
-@auth
-  <a class="navbar-brand">Manage your events</a>
-@endauth
 </div>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -15,8 +12,17 @@
     <a href="{{route('signup')}}">register</a>
     @endguest
     @auth
-      <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
-    @endauth
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Manage your events</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Logout</a>
+        </div>
+      </li>
+  @endauth
 
 </div >
 </nav>

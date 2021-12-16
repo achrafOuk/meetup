@@ -1,5 +1,14 @@
+body{
+    position: relative;
+    min-height: 100vh;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 a{
     text-decoration: none;
+}
+li {
+    list-style: none;
 }
 .navbar{
     background-color: #6A0729 !important;
@@ -9,6 +18,29 @@ a{
 nav a {
     color: white !important;
 }
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin-left: -86%;
+    font-size: 1rem;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0.25rem;
+}
+.dropdown-menu a {
+    color: #212529 !important;
+}
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: #6a0729;
+}
 form.form-inline.my-2.my-lg-0 {
     display: flex;
     margin-left: 2%;
@@ -16,10 +48,7 @@ form.form-inline.my-2.my-lg-0 {
 form.form-inline {
     display: flex;
 }
-body{
-  position: relative;
-  min-height: 100vh;
-}
+
 textarea.form-control {
     min-height: calc(1.5em + 0.75rem + 2px);
     resize: none;

@@ -23,11 +23,13 @@ Route::group(['middleware'=>'guest'],function(){
     Route ::post('/signup',[RegisterController::class,'signup'])->name('Signup');
     //Logout
 });
+
+Route ::get('/events/{id}',[PostController::class,'veiwEvent'])->name('view-event');
 Route::group(['middleware'=>'auth'],function(){
     Route ::post('/logout',[LoginController::class,'logout'])->name('logout');
     Route::group(['prefix'=>'events'],function(){
-        Route ::get('/add',[PostController::class,'newEventPage'])->name('add-event');
-        Route ::post('/add',[PostController::class,'newEvent'])->name('Add-event');
+    Route ::get('/add',[PostController::class,'newEventPage'])->name('add-event');
+    Route ::post('/add',[PostController::class,'newEvent'])->name('Add-event');
     });
 });
 //Events 

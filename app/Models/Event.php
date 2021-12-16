@@ -14,6 +14,9 @@ class Event extends Model
         return $events;
 
     }
+    public function showEvent($id){
+        return DB::table($this->table)->where('id',$id)->get();
+    }
     //insert the new event
     public function addEvent($title,$place,$desc,$user_id){
         DB::table($this->table)->insert([

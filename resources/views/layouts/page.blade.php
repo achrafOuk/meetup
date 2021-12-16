@@ -22,4 +22,15 @@
         <!-------Footer------------>
         @include("layouts/footer")
     </body>
+<script>
+    // show the dropdow menu
+    let displayAction = document.querySelector(".dropdown-menu")?.style.display;
+    document.addEventListener('click',()=>{
+        document.getElementsByClassName("dropdown-menu")[0].style.display =
+        document.getElementsByClassName("dropdown-menu")[0].style.display ===
+        "block"
+        ? "none"
+        : "block";
+    });
+</script>
 </html>

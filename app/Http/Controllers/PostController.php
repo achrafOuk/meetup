@@ -12,6 +12,18 @@ class PostController extends Controller
             'events'=>$event,
         ]);
     }
+    //view event
+    function veiwEvent($id){
+        $events = new Event();
+        $event = $events->showEvent($id);
+        $view = true;
+        if(count($event)){
+            return view('pages.events.index',['events'=>$event,'view'=>$view]);
+        }
+        else{
+            return view('pages.events.index');
+        }
+    }
     function newEventPage(){
         return view('pages.events.add');
     }
