@@ -24,7 +24,6 @@ Route::group(['middleware'=>'guest'],function(){
     //Logout
 });
 
-Route ::get('/events/{id}',[PostController::class,'veiwEvent'])->name('view-event');
 Route::group(['middleware'=>'auth'],function(){
     Route ::post('/logout',[LoginController::class,'logout'])->name('logout');
     Route::group(['prefix'=>'events'],function(){
@@ -33,4 +32,5 @@ Route::group(['middleware'=>'auth'],function(){
     });
 });
 //Events 
+Route ::get('/events/{id}',[PostController::class,'veiwEvent'])->name('view-event');
 //Attempted event

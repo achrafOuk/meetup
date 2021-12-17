@@ -5,7 +5,9 @@
     <div class="card w-100" style="width: 18rem;">
         <div class="card-body">
             @if(!isset($view))
+            <img src=" /storage/app/{{ $event->image}} " />
             <a class="card-title" href="{{route('view-event',['id'=>$event->id])}}">{{$event->title}}</a>
+            <p class="card-text">Place:{{$event->place}}</p>
             <a href="#" class="btn btn-primary">Interessted</a>
             @else
             <h3 class="card-title" href="{{route('view-event',['id'=>$event->id])}}">{{$event->title}}</h3>

@@ -12,16 +12,17 @@ class Event extends Model
     public function getEvents(){
         $events =DB::table($this->table)->get();
         return $events;
-
     }
     public function showEvent($id){
         return DB::table($this->table)->where('id',$id)->get();
     }
     //insert the new event
-    public function addEvent($title,$place,$desc,$user_id){
+    public function addEvent($title,$img,$place,$date,$desc,$user_id){
         DB::table($this->table)->insert([
             'title'=>$title,
+            'image'=>$img,
             'place'=>$place,
+            'date'=>$date,
             'discription'=>$desc,
             'user_id'=>$user_id
         ]);
