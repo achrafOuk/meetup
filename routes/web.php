@@ -15,6 +15,9 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 Route ::get('/',[PostController::class,'index'])->name('index');
+
+Route ::get('image/{filename}',[PostController::class,'getPubliclyStorgeFile'])->name('get-image');
+
 // make auth router accessable only by the geust
 Route::group(['middleware'=>'guest'],function(){
     Route ::get('/login',[LoginController::class,'index'])->name('login');
