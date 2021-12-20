@@ -10,6 +10,9 @@ a{
 li {
     list-style: none;
 }
+button{
+    border-radius: 0;
+}
 .navbar{
     background-color: #6A0729 !important;
     padding: 1%;
@@ -48,7 +51,9 @@ form.form-inline.my-2.my-lg-0 {
 form.form-inline {
     display: flex;
 }
-
+input[type='file'] {
+    display: none;
+}
 textarea.form-control {
     min-height: calc(1.5em + 0.75rem + 2px);
     resize: none;
@@ -57,8 +62,41 @@ textarea.form-control {
 .App{
   padding-bottom: 2.5rem;    /* Footer height */
 }
-.card.w-100 {
+.card.w-25 {
     margin: 2%;
+}
+.card.w-75 {
+    margin: 5% auto;
+}
+.row.justify-content-center {
+    margin-top: 2%;
+}
+.d-flex.justify-content-center button {
+    border-radius: 0;
+}
+img.img-fluid {
+    height: 50vh;
+}
+p .img-fluid {
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 2%;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.card-body img {
+    width: 100%;
+    height: 25vh;
+    max-height: 25vh;
+}
+.card.w-75 img {
+    width: 100%;
+    height: 50vh;
+    max-height: 50vh;
 }
 button.btn.btn-primary.btn-user.btn-block {
     margin-top: 2%;
@@ -77,4 +115,9 @@ footer{
     background: white;
     padding: 2%;
     width: 90%;
+}
+.d-flex {
+    display: flex!important;
+    flex-direction: column;
+    margin: 2%;
 }

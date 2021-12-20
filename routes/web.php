@@ -30,8 +30,11 @@ Route::group(['middleware'=>'guest'],function(){
 Route::group(['middleware'=>'auth'],function(){
     Route ::post('/logout',[LoginController::class,'logout'])->name('logout');
     Route::group(['prefix'=>'events'],function(){
-    Route ::get('/add',[PostController::class,'newEventPage'])->name('add-event');
-    Route ::post('/add',[PostController::class,'newEvent'])->name('Add-event');
+        Route ::get('/myevent',[PostController::class,'getMyEvents'])->name('myevents');
+        Route ::get('/add',[PostController::class,'newEventPage'])->name('add-event');
+        Route ::post('/add',[PostController::class,'newEvent'])->name('Add-event');
+        Route ::get('/edit/{id}',[PostController::class,'editEventPage'])->name('edit-event');
+        Route ::post('/edit/{id}',[PostController::class,'editEvent'])->name('Edit-event');
     });
 });
 //Events 

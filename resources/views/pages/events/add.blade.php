@@ -1,6 +1,6 @@
 @extends('layouts/page')
 @section('content')
-<div class="content-section">
+<div class="d-flex justify-content-center">
 <h1 class="h4 text-gray-900 mb-4 justify-content-center">Add new event</h1>
 <form action="{{route('Add-event')}}" method="POST" enctype="multipart/form-data"
 class="row g-3 align-items-center">

@@ -32,4 +32,5 @@
         : "block";
     });
 </script>
+@yield('script')
 </html>

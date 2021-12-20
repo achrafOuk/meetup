@@ -18,6 +18,18 @@ class PostController extends Controller
             'events'=>$event,
         ]);
     }
+    function getMyEvents(){
+        $posts = new Event();
+        $event = $posts->getEvents();
+        for($i = 0; $i<count($event); $i++){
+            $event1 = $event->values()->get($i);
+            $path_image = explode("/", $event1->image);
+            $event1->image = $path_image[count($path_image)-1];
+        }
+        return view('pages.events.myevent',[
+            'events'=>$event,
+        ]);
+    }
     //view event
     function veiwEvent($id){
         $events = new Event();
@@ -39,7 +51,6 @@ class PostController extends Controller
     {
         // get the path of the image
         $path = storage_path('app/public/image/'. $filename);
-
         //check if image does not exists, show 404 page
         if (!File::exists($path)) {
             echo 'file does not exists';
@@ -76,8 +87,7 @@ class PostController extends Controller
 
         // Filename To store
         $fileNameToStore = $filename. "_". time().".".$extension;
-
-        // Upload Image
+        // get the path of the uploaded Image
         $path = $request->file("image")->storeAs("public/image", $fileNameToStore);
         $events = new Event();
         $events->addEvent(
@@ -90,12 +100,62 @@ class PostController extends Controller
         );
         return redirect()->route('index');
     }
-    function editEventPage(){
+    // add edit event
+    function editEventPage($id){
+        $events = new Event();
+        $event = $events->showEvent($id);
+        // check if user is the author of the post and make him edit the post
+        if( $event->first()->user_id == auth()->id() )
+        {
+            $path_image = explode("/", $event->first()->image );
+            $event->first()->image = $path_image[count($path_image)-1];
+            //view the edit page with 
+            return view('pages.events.edit',['event'=>$event->first()]);
+        }
+        // redirect it to the main page otherwize
+        return redirect()->route('index');
     }
-    function editEvent(){
+    function editEvent(Request $request){
+        // force the data to not be null
+        $this->validate($request, [
+            'title'=>'required',
+            'date'=>'required',
+            'place'=>'required',
+            'description'=>'required'
+        ]);
+        //get the path of new image if user select new one
+        if($request->image!=''){
+            $filenameWithExt = $request->file('image')->getClientOriginalName();
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just Extension
+            $extension = $request->file("image")->getClientOriginalExtension();
+            // Filename To store
+            $fileNameToStore = $filename. "_". time().".".$extension;
+            // get the path of the uploaded Image
+            $path = $request->file("image")->storeAs("public/image", $fileNameToStore);
+        }
+        //get the path of old image
+        else{
+            $events = new Event();
+            $path = $events->getEvents()->first()->image;
+        }
+        $events = new Event();
+        $events->editEvent(
+            $request->id,
+            $request->title,
+            $path,
+            $request->place,
+            $request->date,
+            $request->description,
+            auth()->id()
+        );
+        // redirect to the page of meetup
+        return redirect()->route('view-event',['id'=> $request->id]);
+
     }
     function searchEvent(){
     }
-    function deleteEvent(){
+    function deleteEvent(Request $request){
     }
 }

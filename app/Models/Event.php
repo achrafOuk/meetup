@@ -27,9 +27,20 @@ class Event extends Model
             'user_id'=>$user_id
         ]);
     }
-    public function editEvent(){
+    public function editEvent($id,$title,$img,$place,$date,$desc,$user_id){
+        $date = str_replace('T',' ',$date);
+        DB::table($this->table)->where('id',$id)->update([
+            'title'=>$title,
+            'image'=>$img,
+            'place'=>$place,
+            'date'=>$date,
+            'discription'=>$desc,
+            'user_id'=>$user_id
+        ]);
     }
     public function deleteEvent(){
+        DB::table($this->table)->where('id',$id)->delete();
+
     }
     public function searchEvent(){
 
