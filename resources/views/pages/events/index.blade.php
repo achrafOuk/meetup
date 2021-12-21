@@ -2,11 +2,11 @@
 @section('content')
 @if( $events->count()>0)
     @if(!isset($view))
-<div class="row">
+        <div class="row">
         @foreach($events as $event)
         <div class="card w-25" style="width: 18rem;">
             <div class="card-body">
-                <img src="{{route('get-image',['filename'=>$event->image])}}" alt="" title="">
+                <img class="card-img-top" src="{{route('get-image',['filename'=>$event->image])}}" alt="" title="">
                 <a class="card-title" href="{{route('view-event',['id'=>$event->id])}}">{{$event->title}}</a>
             </div>
         </div>

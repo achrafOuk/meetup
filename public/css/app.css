@@ -1,3 +1,6 @@
+*{
+    border-radius: 0 !important;
+}
 body{
     position: relative;
     min-height: 100vh;
@@ -51,6 +54,10 @@ form.form-inline.my-2.my-lg-0 {
 form.form-inline {
     display: flex;
 }
+form.form-inline {
+    display: flex;
+    width: 57%;
+}
 input[type='file'] {
     display: none;
 }
@@ -62,7 +69,7 @@ textarea.form-control {
 .App{
   padding-bottom: 2.5rem;    /* Footer height */
 }
-.card.w-25 {
+.card {
     margin: 2%;
 }
 .card.w-75 {
@@ -90,8 +97,9 @@ p .img-fluid {
 }
 .card-body img {
     width: 100%;
-    height: 25vh;
-    max-height: 25vh;
+    height: 180px;
+    width: 100%;
+    display: block;
 }
 .card.w-75 img {
     width: 100%;
