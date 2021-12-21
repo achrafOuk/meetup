@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <img src="{{route('get-image',['filename'=>$event->image])}}" alt="" title="">
                         <a class="card-title" href="{{route('view-event',['id'=>$event->id])}}">{{$event->title}}</a>
-                        <div class="d-flex justify-content-center">
+                        <div class="actions d-flex justify-content-center">
                         <a href="{{route('edit-event',['id'=>$event->id] )}}">
                             <button type="button" class="btn btn-success">Edit</button>
                         </a>

@@ -118,6 +118,13 @@ footer{
 }
 .d-flex {
     display: flex!important;
-    flex-direction: column;
     margin: 2%;
+}
+.d-flex.justify-content-center {
+    display: flex;
+    margin: 2%;
+    flex-direction: column;
+}
+.actions {
+    flex-direction: initial !important;
 }

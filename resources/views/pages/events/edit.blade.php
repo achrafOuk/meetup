@@ -27,6 +27,7 @@ title=""><br>
       name="image" 
       maxlength="300" 
       value = "{{ $event->image }}"
+      onChange='PreviewImage();'
       id="id_name" 
       accept="image/png, image/jpeg"
       class="form-control"></p>
@@ -68,9 +69,20 @@ title=""><br>
 let defaultDate = document.getElementById("myLocalDate").defaultValue; 
 defaultDate = defaultDate.replace(" ", "T");
 document.getElementById("myLocalDate").value = defaultDate;
+//upload the image 
 document.querySelector('button.btn.btn-success')
 .addEventListener('click',()=>{ 
   document.querySelector('input[type="file"]').click();
-  })
+  });
+// show preview of the image uploaded
+function PreviewImage() {
+        var oFReader = new FileReader();
+        //get the image uploaded by the user
+        oFReader.readAsDataURL(document.querySelector("input[type='file']").files[0]);
+        //show image's preview
+        oFReader.onload = function (oFREvent) {
+            document.querySelector(".img-fluid").src = oFREvent.target.result;
+        };
+};
 </script>
 @endsection
