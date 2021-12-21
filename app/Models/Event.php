@@ -38,11 +38,9 @@ class Event extends Model
             'user_id'=>$user_id
         ]);
     }
-    public function deleteEvent(){
+    public function deleteEvent($id){
         DB::table($this->table)->where('id',$id)->delete();
-
     }
     public function searchEvent(){
-
     }
 }

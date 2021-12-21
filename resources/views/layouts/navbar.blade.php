@@ -17,7 +17,8 @@
             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{route('myevents')}}">Manage meets</a>
+          <a class="dropdown-item" href="{{route('myevents')}}">My meets</a>
+          <a class="dropdown-item" href="#">My meets to attempt</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Logout</a>
         </div>

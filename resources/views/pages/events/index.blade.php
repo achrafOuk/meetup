@@ -21,7 +21,12 @@
                 <p class="card-text">Place:{{$event->place}}</p>
                 <p class="card-text">Time:{{$event->date}}</p>
                 <p class="card-text">{{$event->discription}}</p>
-                <a href="#" class="btn btn-primary">Interessted</a>
+                @if(!isset($edit))
+                    <a href="#" class="btn btn-primary">Interessted</a>
+                @else
+                    <a href="{{route('edit-event',['id'=>$event->id])}}" 
+                    class="btn btn-primary">Edit</a>
+                @endif
                 </div>
             </div>
             @endforeach

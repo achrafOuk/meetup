@@ -18,6 +18,7 @@ class PostController extends Controller
             'events'=>$event,
         ]);
     }
+    // get events of the users
     function getMyEvents(){
         $posts = new Event();
         $event = $posts->getEvents();
@@ -37,14 +38,16 @@ class PostController extends Controller
         $view = true;
         $event1 = $event->first();
         if(count($event)){
-
-        $path_image = explode("/", $event1->image);
-        $event->first()->image = $path_image[count($path_image)-1];
+            //get the path of the image
+            $path_image = explode("/", $event1->image);
+            $event->first()->image = $path_image[count($path_image)-1];
+            //check if the visitor is the writer of the post and enable edit file
+            if(  $event1->user_id == auth()->id() ){
+                return view('pages.events.index',['events'=>$event,'view'=>$view,"edit"=>true]);
+            }
             return view('pages.events.index',['events'=>$event,'view'=>$view]);
         }
-        else{
-            return view('pages.events.index');
-        }
+        abort(404);
     }
     //get image from storage
     public function getPubliclyStorgeFile($filename)
@@ -154,8 +157,12 @@ class PostController extends Controller
         return redirect()->route('view-event',['id'=> $request->id]);
 
     }
-    function searchEvent(){
+    // delete meet
+    function searchEvent(Request $request){
+        $event = new Event();
+        $event->deleteEvent($id);
     }
-    function deleteEvent(Request $request){
+    function deleteEvent( $search_event ){
+        // delete meet
     }
 }
