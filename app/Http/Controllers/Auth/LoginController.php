@@ -17,4 +17,8 @@ class LoginController extends Controller
         }
             return redirect()->route('index');
     }
+    function logout(){
+        auth()->logout();
+        return redirect()->route('login');
+    }
 }

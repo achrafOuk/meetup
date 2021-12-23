@@ -16,7 +16,6 @@
                         <a href="{{route('add-event')}}">
                             <button type="button" class="btn btn-danger">Delete</button>
                         </a>
-
                         </div>
                     </div>
                 </div>

@@ -18,12 +18,11 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{route('myevents')}}">My meets</a>
-          <a class="dropdown-item" href="#">My meets to attempt</a>
+          <a class="dropdown-item" href="{{route('attempt_events')}}">My meets to attempt</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>
       </li>
   @endauth
-
 </div >
 </nav>

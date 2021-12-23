@@ -22,7 +22,7 @@
                 <p class="card-text">Time:{{$event->date}}</p>
                 <p class="card-text">{{$event->discription}}</p>
                 @if(!isset($edit))
-                    <a href="#" class="btn btn-primary">Interessted</a>
+                    <a href="{{route('attempt_event',['id'=>$event->id])}}" class="btn btn-primary">Interessted</a>
                 @else
                     <a href="{{route('edit-event',['id'=>$event->id])}}" 
                     class="btn btn-primary">Edit</a>
