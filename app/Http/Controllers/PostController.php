@@ -21,7 +21,7 @@ class PostController extends Controller
     // get events of the users
     function getMyEvents(){
         $posts = new Event();
-        $event = $posts->getEvents();
+        $event = $posts->getMyEvents();
         for($i = 0; $i<count($event); $i++){
             $event1 = $event->values()->get($i);
             $path_image = explode("/", $event1->image);
@@ -40,12 +40,12 @@ class PostController extends Controller
         if(count($event)){
             //get the path of the image
             $path_image = explode("/", $event1->image);
-            $event->first()->image = $path_image[count($path_image)-1];
+            $event1->image = $path_image[count($path_image)-1];
             //check if the visitor is the writer of the post and enable edit file
             if(  $event1->user_id == auth()->id() ){
-                return view('pages.events.index',['events'=>$event,'view'=>$view,"edit"=>true]);
+                return view('pages.events.show',['event'=>$event1,'view'=>$view,"edit"=>true]);
             }
-            return view('pages.events.index',['events'=>$event,'view'=>$view]);
+            return view('pages.events.show',['event'=>$event1]);
         }
         abort(404);
     }
