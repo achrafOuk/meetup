@@ -17,11 +17,12 @@ class AttemptEvent extends Model
         ->select('events.*')
         ->where('attempt_events.user_id',$user_id)->get();
     }
+    public function get_attempt_event($event_id){
+        return DB::table($this->table)
+        ->where('attempt_events.event_id',$event_id)->count();
+    }
     //add  event to be attempted
     public function attempt_event($user_id,$event_id){
-        echo gettype($user_id).'<br>';
-        echo $event_id.'<br>';
-        echo gettype($event_id).'<br>';
         DB::table($this->table)->insert([
             'user_id'=>$user_id,
             'event_id'=>$event_id,

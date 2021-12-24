@@ -42,7 +42,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route ::get('/myevents',[AttemtEventController::class,'attempted_events'])->name('attempt_events');
         Route ::post('/add/{id}',[AttemtEventController::class,'attempt_event'])
         ->name('attempt_event');
-        Route ::post('/delete/{id}',[AttemtEventController::class,'cancel_attempt_events'])
+        Route ::post('/delete/{id}',[AttemtEventController::class,'cancel_attempt_event'])
         ->name('cancel_attempt_event');
     });
 });

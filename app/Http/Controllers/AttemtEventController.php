@@ -34,9 +34,9 @@ class AttemtEventController extends Controller
     //remove attempt event
     public function cancel_attempt_event(Request $request)
     {
-        $events = new AttemptEvent();
+        $event = new AttemptEvent();
         $id = auth()->id();
-        $event->cancel_attempt_event($id,$request->event_id);
+        $event->cancel_attempt_event($id,$request->id);
         return redirect()->route('attempt_events');
 
     }

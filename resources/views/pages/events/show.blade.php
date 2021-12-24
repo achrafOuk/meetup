@@ -9,13 +9,19 @@
     <p class="card-text">Time:{{$event->date}}</p>
     <p class="card-text">{{$event->discription}}</p>
     @if(!isset($edit))
-    <form action="{{route('attempt_event',['id'=>$event->id])}}" method='POST'>
-        @csrf
-        <button style=" width: 100%;" type='submit' class="btn btn-primary">Interessted</buttin>
-    </form>
+        @if($attempt)
+        <form action="{{route('attempt_event',['id'=>$event->id])}}" method='POST'>
+            @csrf
+                <button style=" width: 100%;" type='submit' class="btn btn-primary">Interessted</buttin>
+        </form>
+        @else
+            <form action="{{route('cancel_attempt_event',['id'=>$event->id])}}" method='POST'>
+                @csrf
+                <button style=" width: 100%;" type='submit' class="btn btn-primary">Not interessted</buttin>
+            </form>
+        @endif
     @else
-        <a href="{{route('edit-event',['id'=>$event->id])}}" 
-        class="btn btn-primary">Edit</a>
+        <a href="{{route('edit-event',['id'=>$event->id])}}" class="btn btn-primary">Edit</a>
     @endif
     </div>
 </div>

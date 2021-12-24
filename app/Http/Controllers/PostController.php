@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
+use App\Models\AttemptEvent;
 class PostController extends Controller
 {
     function index(){
@@ -45,7 +46,12 @@ class PostController extends Controller
             if(  $event1->user_id == auth()->id() ){
                 return view('pages.events.show',['event'=>$event1,'view'=>$view,"edit"=>true]);
             }
-            return view('pages.events.show',['event'=>$event1]);
+            $attempted_events = new AttemptEvent();
+            if( $attempted_events->get_attempt_event($id)>0 ){
+                return view('pages.events.show',
+                ['event'=>$event1,'attempt'=>true]);
+            }
+            return view('pages.events.show',['event'=>$event1,'attempt'=>false]);
         }
         abort(404);
     }
