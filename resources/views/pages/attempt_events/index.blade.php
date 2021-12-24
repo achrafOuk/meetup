@@ -1,7 +1,8 @@
 @extends('layouts/page')
 @section('content')
 @if( $events->count()>0)
-    <div class="row">
+<div class="row">
+    <p class="row justify-content-left"> Events you will attempt </p>
         @foreach($events as $event)
         <div class="card w-25" style="width: 18rem;">
             <div class="card-body">

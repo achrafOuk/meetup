@@ -133,6 +133,11 @@ footer{
     margin: 2%;
     flex-direction: column;
 }
+p.row.justify-content-left {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 0%;
+}
 .actions {
     flex-direction: initial !important;
 }

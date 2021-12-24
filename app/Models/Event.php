@@ -10,7 +10,8 @@ class Event extends Model
     use HasFactory;
     public $table = 'events';
     public function getEvents(){
-        $events =DB::table($this->table)->get();
+        $events =DB::table($this->table)
+        ->orderBy('date','asc')->paginate(1);
         return $events;
     }
     public function showEvent($id){
@@ -18,7 +19,8 @@ class Event extends Model
     }
     public function getMyEvents(){
         $user_id = auth()->id();
-        $events =DB::table($this->table)->where('user_id',$user_id)->get();
+        $events =DB::table($this->table)->where('user_id',$user_id)
+        ->orderBy('date','asc')->paginate(1);
         return $events;
     }
     //insert the new event
