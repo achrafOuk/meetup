@@ -11,7 +11,7 @@ class Event extends Model
     public $table = 'events';
     public function getEvents(){
         $events =DB::table($this->table)
-        ->orderBy('date','asc')->paginate(1);
+        ->orderBy('date','asc')->paginate(2);
         return $events;
     }
     public function showEvent($id){
@@ -20,7 +20,7 @@ class Event extends Model
     public function getMyEvents(){
         $user_id = auth()->id();
         $events =DB::table($this->table)->where('user_id',$user_id)
-        ->orderBy('date','asc')->paginate(1);
+        ->orderBy('date','asc')->paginate(2);
         return $events;
     }
     //insert the new event

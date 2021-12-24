@@ -133,6 +133,10 @@ footer{
     margin: 2%;
     flex-direction: column;
 }
+#dataTable_paginate {
+    display: flex;
+    justify-content: center;
+}
 p.row.justify-content-left {
     font-weight: bold;
     font-size: 1.3rem;
@@ -140,4 +144,17 @@ p.row.justify-content-left {
 }
 .actions {
     flex-direction: initial !important;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6a0729;
+    border-color: #6a0729;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: #6a0729;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
 }

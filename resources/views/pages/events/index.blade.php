@@ -11,7 +11,7 @@
         </div>
     </div>
     @endforeach
-</div>
+        @include("layouts/pagination")
     @else
 No event to be shown
 @endif

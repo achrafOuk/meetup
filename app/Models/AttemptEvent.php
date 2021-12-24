@@ -16,7 +16,7 @@ class AttemptEvent extends Model
         ->join('events','events.id','=',$this->table.'.event_id')
         ->select('events.*')
         ->where('attempt_events.user_id',$user_id)
-        ->orderBy('events.date','asc')->paginate(1);
+        ->orderBy('events.date','asc')->paginate(2);
     }
     public function get_attempt_event($event_id){
         return DB::table($this->table)

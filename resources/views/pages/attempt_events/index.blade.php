@@ -12,6 +12,8 @@
         </div>
         @endforeach
     </div>
+
+    @include("layouts/pagination")
 @else
     <div class="row d-flex justify-content-center" style='text-align: center;'>
         You don't have events to attempts yet
