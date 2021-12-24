@@ -9,7 +9,10 @@
     <p class="card-text">Time:{{$event->date}}</p>
     <p class="card-text">{{$event->discription}}</p>
     @if(!isset($edit))
-        <a href="{{route('attempt_event',['id'=>$event->id])}}" class="btn btn-primary">Interessted</a>
+    <form action="{{route('attempt_event',['id'=>$event->id])}}" method='POST'>
+        @csrf
+        <button style=" width: 100%;" type='submit' class="btn btn-primary">Interessted</buttin>
+    </form>
     @else
         <a href="{{route('edit-event',['id'=>$event->id])}}" 
         class="btn btn-primary">Edit</a>

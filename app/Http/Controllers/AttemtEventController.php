@@ -24,9 +24,11 @@ class AttemtEventController extends Controller
     //attempt event
     public function attempt_event(Request $request)
     {
-        $events = new AttemptEvent();
-        $id = auth()->id();
-        $event->attempt_event($id,$request->event_id);
+        $event = new AttemptEvent();
+        //get the id of the user
+        $id =  auth()->id() ;
+        $event_id =  intval ( $request->id ) ;
+        $event->attempt_event($id,$event_id);
         return redirect()->route('attempt_events');
     }
     //remove attempt event
