@@ -1,0 +1,1 @@
+web: vndor/bin/heroku-php-apache2 public/
