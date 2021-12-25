@@ -44,13 +44,16 @@ class PostController extends Controller
             $event1->image = $path_image[count($path_image)-1];
             //check if the visitor is the writer of the post and enable edit file
             if(  $event1->user_id == auth()->id() ){
+                //echo 1;
                 return view('pages.events.show',['event'=>$event1,'view'=>$view,"edit"=>true]);
             }
             $attempted_events = new AttemptEvent();
-            if( $attempted_events->get_attempt_event($id)>0 ){
+            //check if user want to attempt this event
+            if( !empty(auth()->id()) && $attempted_events->get_attempt_event($id)>0 ){
                 return view('pages.events.show',
                 ['event'=>$event1,'attempt'=>true]);
             }
+                //echo 3;
             return view('pages.events.show',['event'=>$event1,'attempt'=>false]);
         }
         abort(404);
@@ -107,7 +110,10 @@ class PostController extends Controller
             $request->description,
             auth()->id()
         );
-        return redirect()->route('index');
+        return redirect()->route('myevents')
+        ->with('msg', 'New event is added')
+        ->with('type', 'info');
+
     }
     // add edit event
     function editEventPage($id){
@@ -160,13 +166,17 @@ class PostController extends Controller
             auth()->id()
         );
         // redirect to the page of meetup
-        return redirect()->route('view-event',['id'=> $request->id]);
-
+        return redirect()->route('view-event',[ 'id'=> $request->id])
+        ->with('msg', 'Event was edited')
+        ->with('type', 'info');
     }
     // delete meet
     function deleteEvent( Request $request ){
         $event = new Event();
         $event->deleteEvent($request->id);
+        return redirect()->route('index')
+        ->with('msg', 'Event was deleted')
+        ->with('type', 'info');
     }
     //search event
     function searchEvent( Request $request ){

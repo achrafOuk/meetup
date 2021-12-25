@@ -29,7 +29,10 @@ class AttemtEventController extends Controller
         $id =  auth()->id() ;
         $event_id =  intval ( $request->id ) ;
         $event->attempt_event($id,$event_id);
-        return redirect()->route('attempt_events');
+        return redirect()->route('view-event',['id'=>$request->id])
+        ->with('msg', 'Event is added to attempt list')
+        ->with('type', 'info');
+
     }
     //remove attempt event
     public function cancel_attempt_event(Request $request)
@@ -37,7 +40,9 @@ class AttemtEventController extends Controller
         $event = new AttemptEvent();
         $id = auth()->id();
         $event->cancel_attempt_event($id,$request->id);
-        return redirect()->route('attempt_events');
+        return redirect()->route('view-event',['id'=>$request->id])
+        ->with('msg', 'Event was remove from attempt list')
+        ->with('type', 'info');
 
     }
 }

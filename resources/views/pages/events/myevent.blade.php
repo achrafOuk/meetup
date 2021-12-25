@@ -3,6 +3,7 @@
 <div class="row justify-content-center" style="
     flex-direction: column;
 ">
+    @include('layouts/msg')
     <p class="row justify-content-left" style=" margin-bottom: 2%;"> Events you organized </p>
     <button type="button" class="btn btn-primary" style=" width: 10%; ">
         <a href="{{route('add-event')}}" style='color: white !important;'>
@@ -17,8 +18,23 @@
                         <img src="{{route('get-image',['filename'=>$event->image])}}" alt="" title="">
                         <a class="card-title" href="{{route('view-event',['id'=>$event->id])}}">{{$event->title}}</a>
                         <div class="actions d-flex justify-content-center">
-                        <button href="{{route('edit-event',['id'=>$event->id] )}}" type="button" class="btn btn-success">edit</button>
-                        <button href="{{route('edit-event',['id'=>$event->id] )}}"  type="button" class="btn btn-danger">Delete</button>
+                        <button 
+                        type="button" 
+                        class="btn btn-success">
+                        <a href="{{route('edit-event',['id'=>$event->id] )}}" >
+                            edit
+                        </a>
+                        </button>
+                    <form action ="{{route('delete-event',['id'=>$event->id] )}}" method='POST'>
+                        @csrf
+                        <button 
+                        type="submit" 
+                        class="btn btn-danger">
+                            <a >
+                                delete
+                        </a>
+                        </button>
+                    </form>
                         </div>
                     </div>
                 </div>

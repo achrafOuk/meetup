@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light bg-light">
 <div>
-  <a class="navbar-brand" href="{{route('index')}}">Meetup </a>
+  <a class="navbar-brand" href="{{route('index')}}">Laravel Meetups </a>
 </div>
-  <!-----form class="form-inline">
+  <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form------>
-  <div>
+  </form>
+  <div >
     @guest
     <a href="{{route('login')}}">Login</a>
     <a href="{{route('signup')}}">register</a>

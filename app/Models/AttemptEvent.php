@@ -20,7 +20,9 @@ class AttemptEvent extends Model
     }
     public function get_attempt_event($event_id){
         return DB::table($this->table)
-        ->where('attempt_events.event_id',$event_id)->count();
+        ->where('attempt_events.event_id',$event_id)
+        ->where('attempt_events.user_id', auth()->id() )
+        ->count();
     }
     //add  event to be attempted
     public function attempt_event($user_id,$event_id){

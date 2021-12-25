@@ -7,8 +7,9 @@ body{
     max-width: 100%;
     overflow-x: hidden;
 }
-a{
+a,a:hover{
     text-decoration: none;
+    color: white;
 }
 li {
     list-style: none;
@@ -72,8 +73,17 @@ textarea.form-control {
 .card {
     margin: 2%;
 }
+.card a {
+    color: black;
+}
+button a {
+    color: white !important;
+}
 .card.w-75 {
     margin: 5% auto;
+}
+.row{
+    margin-top: 1%;
 }
 .row.justify-content-center {
     margin-top: 2%;
@@ -141,7 +151,8 @@ footer{
     flex-direction: row;
 }
 .manage-event.d-flex.justify-content-center a{
-    width: 50%;
+    width: 15%;
+    color:white;
 }
 p.row.justify-content-left {
     font-weight: bold;

@@ -2,6 +2,7 @@
 @section('content')
 @if( $events->count()>0)
     <div class="row">
+    @include('layouts/msg')
     <p class="row justify-content-left"> List of events </p>
     @foreach($events as $event)
     <div class="card w-25" style="width: 18rem;">

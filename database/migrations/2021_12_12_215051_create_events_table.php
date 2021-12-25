@@ -22,7 +22,6 @@ class CreateEventsTable extends Migration
             $table->foreignId('user_id')->constrained('users','id')->onDelete('cascade');
         });
     }
-
     /**
      * Reverse the migrations.
      *

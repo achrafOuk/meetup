@@ -38,7 +38,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route ::post('/edit/{id}',[PostController::class,'editEvent'])->name('Edit-event');
         Route ::post('/delete/{id}',[PostController::class,'deleteEvent'])->name('delete-event');
     });
-
+    //Attempted event
     Route::group(['prefix'=>'attempt_events'],function(){
         Route ::get('/myevents',[AttemtEventController::class,'attempted_events'])->name('attempt_events');
         Route ::post('/add/{id}',[AttemtEventController::class,'attempt_event'])
@@ -49,4 +49,3 @@ Route::group(['middleware'=>'auth'],function(){
 });
 //Events 
 Route ::get('/events/{id}',[PostController::class,'veiwEvent'])->name('view-event');
-//Attempted event
