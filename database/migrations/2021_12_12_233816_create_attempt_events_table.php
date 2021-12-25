@@ -16,7 +16,7 @@ class CreateAttemptEventsTable extends Migration
         Schema::create('attempt_events', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users','id')->onDelete('cascade');
-            $table->foreignId('event_id')->constrained('event','id')->onDelete('cascade');
+            $table->foreignId('event_id')->constrained('events','id')->onDelete('cascade');
         });
     }
 
