@@ -164,11 +164,12 @@ class PostController extends Controller
 
     }
     // delete meet
-    function searchEvent(Request $request){
+    function deleteEvent( Request $request ){
         $event = new Event();
-        $event->deleteEvent($id);
+        $event->deleteEvent($request->id);
     }
-    function deleteEvent( $search_event ){
+    //search event
+    function searchEvent( Request $request ){
         // delete meet
     }
 }

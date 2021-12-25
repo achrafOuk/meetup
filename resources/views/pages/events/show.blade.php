@@ -9,24 +9,22 @@
     <p class="card-text">Time:{{$event->date}}</p>
     <p class="card-text">{{$event->discription}}</p>
     @if(!isset($edit))
-        @if( !$attempt and !auth()->id() )
+        @if( $attempt || !empty( auth()->id() ) )
         <form action="{{route('attempt_event',['id'=>$event->id])}}" method='POST'>
             @csrf
                 <button style=" width: 100%;" type='submit' class="btn btn-primary">Interessted</buttin>
         </form>
-        @elseif( !$attempt and auth()->id() )
-        <form action="{{route('attempt_event',['id'=>$event->id])}}" method='POST'>
-            @csrf
-                <button style=" width: 100%;" type='submit' class="btn btn-primary">Interessted</buttin>
-        </form>
-        @elseif( auth()->id() && $attempt   )
+        @elseif( !empty( auth()->id() )  && $attempt   )
             <form action="{{route('cancel_attempt_event',['id'=>$event->id])}}" method='POST'>
                 @csrf
                 <button style=" width: 100%;" type='submit' class="btn btn-primary">Not interessted</buttin>
             </form>
         @endif
     @else
+    <div class='manage-event d-flex justify-content-center'>
         <a href="{{route('edit-event',['id'=>$event->id])}}" class="btn btn-primary">Edit</a>
+        <a href="{{route('delete-event',['id'=>$event->id])}}" class="btn btn-danger">delete</a>
+    </div>
     @endif
     </div>
 </div>

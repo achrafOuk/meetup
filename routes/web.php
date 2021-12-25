@@ -36,6 +36,7 @@ Route::group(['middleware'=>'auth'],function(){
         Route ::post('/add',[PostController::class,'newEvent'])->name('Add-event');
         Route ::get('/edit/{id}',[PostController::class,'editEventPage'])->name('edit-event');
         Route ::post('/edit/{id}',[PostController::class,'editEvent'])->name('Edit-event');
+        Route ::post('/delete/{id}',[PostController::class,'deleteEvent'])->name('delete-event');
     });
 
     Route::group(['prefix'=>'attempt_events'],function(){

@@ -137,6 +137,12 @@ footer{
     display: flex;
     justify-content: center;
 }
+.manage-event.d-flex.justify-content-center {
+    flex-direction: row;
+}
+.manage-event.d-flex.justify-content-center a{
+    width: 50%;
+}
 p.row.justify-content-left {
     font-weight: bold;
     font-size: 1.3rem;
