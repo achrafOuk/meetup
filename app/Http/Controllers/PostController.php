@@ -179,7 +179,17 @@ class PostController extends Controller
         ->with('type', 'info');
     }
     //search event
-    function searchEvent( Request $request ){
-        // delete meet
+    function searchEvent(Request $request){
+        //get the requested search
+        $search = $request->search;
+        $event = new Event();
+        $search_result =  $event->searchEvent($search );
+        foreach($search_result as $event){
+            $path_image = explode("/", $event->image);
+            $event->image = $path_image[count($path_image)-1];
+        }
+        return view('pages.events.index',[
+            'events'=>$search_result,
+        ]);
     }
 }

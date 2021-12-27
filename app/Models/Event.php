@@ -48,6 +48,8 @@ class Event extends Model
     public function deleteEvent($id){
         DB::table($this->table)->where('id',$id)->delete();
     }
-    public function searchEvent(){
+    public function searchEvent($search){
+        return DB::table($this->table)
+        ->where('title','like',"%{$search}%")->paginate(5);
     }
 }

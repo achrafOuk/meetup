@@ -2,10 +2,28 @@
 <div>
   <a class="navbar-brand" href="{{route('index')}}">Laravel Meetups </a>
 </div>
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
+  @if(!empty($search))
+      <form action= "{{route('search')}}" method='GET' class="form-inline">
+        <input 
+        class="form-control mr-sm-2" 
+        name='search' 
+        value='{{$search}}'
+        type="search" 
+        placeholder="search" aria-label="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+      <input type="text" name="search" required/>
+      <button type="submit">search</button>
+    </form>
+  @else
+      <form action= "{{route('search')}}" method='GET' class="form-inline">
+        <input 
+        class="form-control mr-sm-2" 
+        type="search" 
+        name='search' 
+        placeholder="search" aria-label="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+    </form>
+  @endif
   <div >
     @guest
     <a href="{{route('login')}}">Login</a>

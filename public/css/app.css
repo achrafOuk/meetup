@@ -70,6 +70,10 @@ textarea.form-control {
 .App{
   padding-bottom: 2.5rem;    /* Footer height */
 }
+form button.btn.btn-outline-success.my-2.my-sm-0 {
+    background: #198754;
+    color: white;
+}
 .card {
     margin: 2%;
 }

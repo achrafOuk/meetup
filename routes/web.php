@@ -49,3 +49,4 @@ Route::group(['middleware'=>'auth'],function(){
 });
 //Events 
 Route ::get('/events/{id}',[PostController::class,'veiwEvent'])->name('view-event');
+Route ::get('/search/',[PostController::class,'searchEvent'])->name('search');
